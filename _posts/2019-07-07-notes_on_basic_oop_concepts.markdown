@@ -9,12 +9,14 @@ permalink:  notes_on_basic_oop_concepts
 BY CHAIM KIRILL SHCHERBINA
 
 **Class**
+
 To illustrate with an example:
 A Dog class produces individual dog objects, each of which contains all the information and behaviors of an individual dog.
 
 Think of a class like a blueprint that defines how to build an object.
 
-***Instance Methods***.
+***Instance Methods***
+.
 Instance methods are methods defined within the object’s class. We call them instance methods because they belong to any instance of the class. 
 
 Example:  Defining #bark within the Dog class, bark becomes a method of all instances of Dogs. If we make more dogs, they can all bark.
@@ -24,6 +26,7 @@ Note: Instances of a class are not globally evocable like procedural methods. Th
 
 
 ***Initialize***
+
 The initialize method will require certain arguments to be passed when instantiating the class, to provide it with initial data. In other words, an #initialize method is a method that is called automatically whenever #new is used.
 
 What we would have to do without initialize, after making a setter and getter for breed:
@@ -78,14 +81,17 @@ def get_adopted(owner_name)
 
 
 ***Instance Variables***
+
 An instance variable is responsible for holding information regarding an instance of a class and is accessible only to that instance of the class.
 
 ***Class Variable***
+
 Class Variables store information regarding the class as a whole. They are accessible to the entire class––they have a class scope.
 
 A class variable looks like this: @@variable_name.
 
 ***Class Method***
+
 A class method is a method that is called on the class itself, not on the instances of that class. They enact behaviors that belong to the whole class, not just to individual instances of that class. (note: this can be done because even classes are objects).
 
 Example;
