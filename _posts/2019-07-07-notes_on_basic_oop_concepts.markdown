@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "NOTES ON BASIC OOP CONCEPTS"
-date:       2019-07-07 21:38:46 +0000
+date:       2019-07-07 17:38:47 -0400
 permalink:  notes_on_basic_oop_concepts
 ---
 
@@ -23,7 +23,7 @@ Example:  Defining #bark within the Dog class, bark becomes a method of all inst
 Note: Instances of a class are not globally evocable like procedural methods. They cannot be called without an instance.
 
       .     
-***** Initialize*****
+***Initialize***
 The initialize method will require certain arguments to be passed when instantiating the class, to provide it with initial data. In other words, an #initialize method is a method that is called automatically whenever #new is used.
 
 What we would have to do without initialize, after making a setter and getter for breed:
