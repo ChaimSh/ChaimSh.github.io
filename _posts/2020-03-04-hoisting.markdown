@@ -1,0 +1,114 @@
+---
+layout: post
+title:      "Hoisting      "
+date:       2020-03-04 18:52:28 +0000
+permalink:  hoisting
+---
+
+By Kirill Chaim Shcherbina
+
+**What is it?**
+
+The JavaScript engine stores function and variable declarations in memory during the compilation phase. So by the time the execution phase comes around they are in memory already. 
+
+In other words, when Javascript compiles all of your code, all variable declarations using var are hoisted/lifted to the top of their functional/local scope (if declared inside a function) or to the top of their global scope (if declared outside of a function) regardless of where the actual declaration has been made. This is what we mean by “hoisting”.
+
+Example:
+
+```
+
+function myFunc () {
+  console.log(hello);
+ 
+  var hello = 'World!';
+}
+// => undefined
+
+```
+
+The above code returned undefined because this is actually how it was read:
+
+```
+function myFunc () {
+  var hello;
+ 
+  console.log(hello);
+ 
+  hello = 'World!';
+}
+
+```
+
+Due to hoisting, var hello was, so to say placed at the top. While the assignment to “World” was left below where the console.log() does not see it.
+
+
+
+**What gets hoisted?**
+
+
+We touched upon variable hoisting above.We saw that hoisting applies to variables declared with var. However, variables and constants declared with let or const are not hoisted. (To note: . Variables declared with const and let do technically get 'hoisted', but the JavaScript engine doesn't allow them to be referenced before they've been initialized, so we just say that they “aren’t hoisted”.)
+
+
+So taking the above example and replacing var with let:
+
+```
+function myFunc () {
+  console.log(hello);
+ 
+  let hello = 'World!';
+}
+
+myFunc()
+```
+
+gives us:
+
+
+```
+//=> Uncaught ReferenceError: Cannot access 'hello' before initialization at myFunc. 
+   
+```
+ 
+This is because there is no hoisting by let. So not only did we not get undefined, we got an error. If there were to be hoisting involved, at least we would have a “hello” be declared before console.log(). Now however, there is no existence of any “hello” before the console.log(). The only way to fix it would be to do:
+
+```
+function myFunc () {
+let hello = 'World!';
+  console.log(hello);
+}
+myFunc()
+
+//=>World!
+
+```
+
+
+
+Functions declarations are hoisted, but these go to the very top, so will sit above all of the variable declarations. However, functions that are assigned to variables or function expressions are not hoisted. 
+
+This works:
+
+```
+foo();
+
+function foo() {
+  alert("Hello!");
+}
+
+```
+
+This doesn't:
+
+```
+foo();
+
+var foo = function() {
+  alert("Hello!");
+};
+
+
+```
+
+
+Thank you for reading. Hope you enjoyed and gained clarity in hoisting.
+
